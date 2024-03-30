@@ -1,9 +1,10 @@
 const wrapper = document.querySelector(".wrapper"),
-  inputPart = wrapper.querySelector(".input-part"),
+  inputPart = document.querySelector(".input-part"),
   infoText = inputPart.querySelector(".info-text"),
   inputField = inputPart.querySelector("input"),
   locationBtn = inputPart.querySelector("button"),
-  wIcon = wrapper.querySelector(".weather-part img"),
+  weatherPart = wrapper.querySelector(".weather-part"),
+  wIcon = wrapper.querySelector("img"),
   arrowBack = wrapper.querySelector("header i");
 
 let api;
@@ -83,11 +84,11 @@ function weatherDetails(info) {
     }
 
     // let's pass these values to a particular html element
-    wrapper.querySelector(".temp .numb").innerText = Math.floor(temp);
-    wrapper.querySelector(".weather").innerText = description;
-    wrapper.querySelector(".location span").innerText = `${city}, ${country}`;
-    wrapper.querySelector(".temp .numb-2").innerText = feels_like;
-    wrapper.querySelector(".humidity span").innerText = `${humidity}%`;
+    weatherPart.querySelector(".temp .numb").innerText = Math.floor(temp);
+    weatherPart.querySelector(".weather").innerText = description;
+    weatherPart.querySelector(".location span").innerText = `${city}, ${country}`;
+    weatherPart.querySelector(".temp .numb-2").innerText = Math.floor(feels_like);
+    weatherPart.querySelector(".humidity span").innerText = `${humidity}%`;
 
     infoText.classList.remove("pending", "error");
     infoText.innerText = "";
